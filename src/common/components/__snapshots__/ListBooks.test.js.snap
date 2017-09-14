@@ -1,0 +1,300 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<ol
+  className="books-grid"
+>
+  <li>
+    <div
+      className="book"
+    >
+      <div
+        className="book-top"
+      >
+        <div
+          className="book-cover"
+          style={
+            Object {
+              "backgroundImage": "url(\\"algo\\")",
+              "height": 193,
+              "width": 128,
+            }
+          }
+        />
+        <If
+          test={true}
+        >
+          <div
+            onClick={[Function]}
+          >
+            <a
+              className="book-shelf-read"
+            />
+          </div>
+        </If>
+        <div
+          className="book-shelf-changer"
+        >
+          <ShelfOptions
+            book={
+              Object {
+                "authors": "Eu",
+                "id": 10,
+                "imageLinks": Object {
+                  "thumbnail": "algo",
+                },
+                "shelf": "read",
+                "title": "Livro",
+              }
+            }
+            setUpdate={[Function]}
+          />
+        </div>
+      </div>
+      <div
+        className="book-title"
+      >
+        Livro
+      </div>
+      <div
+        className="book-authors"
+      >
+        Eu
+      </div>
+      <div
+        className="book-authors"
+      >
+        read
+      </div>
+      <If
+        test={true}
+      >
+        <div
+          className="overlay"
+          id="popup1"
+        >
+          <div
+            className="popup"
+          >
+            <a
+              className="close"
+              onClick={[Function]}
+            >
+              ×
+            </a>
+            <RelatedBooks
+              bookId={10}
+              bookIdUpdate=""
+              relatedBooks={Array []}
+              setUpdate={[Function]}
+            />
+          </div>
+        </div>
+      </If>
+    </div>
+  </li>
+  <li>
+    <div
+      className="book"
+    >
+      <div
+        className="book-top"
+      >
+        <div
+          className="book-cover"
+          style={
+            Object {
+              "backgroundImage": "url(\\"algo dois\\")",
+              "height": 193,
+              "width": 128,
+            }
+          }
+        />
+        <If
+          test={false}
+        >
+          <div
+            onClick={[Function]}
+          >
+            <a
+              className="book-shelf-read"
+            />
+          </div>
+        </If>
+        <div
+          className="book-shelf-changer"
+        >
+          <ShelfOptions
+            book={
+              Object {
+                "authors": "Outro",
+                "id": 263,
+                "imageLinks": Object {
+                  "thumbnail": "algo dois",
+                },
+                "shelf": "currentlyReading",
+                "title": "Livro Dois",
+              }
+            }
+            setUpdate={[Function]}
+          />
+        </div>
+      </div>
+      <div
+        className="book-title"
+      >
+        Livro Dois
+      </div>
+      <div
+        className="book-authors"
+      >
+        Outro
+      </div>
+      <div
+        className="book-authors"
+      >
+        currentlyReading
+      </div>
+      <If
+        test={false}
+      >
+        <div
+          className="overlay"
+          id="popup1"
+        >
+          <div
+            className="popup"
+          >
+            <a
+              className="close"
+              onClick={[Function]}
+            >
+              ×
+            </a>
+            <RelatedBooks
+              bookId={263}
+              bookIdUpdate=""
+              relatedBooks={Array []}
+              setUpdate={[Function]}
+            />
+          </div>
+        </div>
+      </If>
+    </div>
+  </li>
+</ol>
+`;
+
+exports[`renders without crashing five 1`] = `
+<ol
+  className="books-grid"
+/>
+`;
+
+exports[`renders without crashing four 1`] = `
+<ol
+  className="books-grid"
+/>
+`;
+
+exports[`renders without crashing three 1`] = `
+<ol
+  className="books-grid"
+/>
+`;
+
+exports[`renders without crashing two 1`] = `
+<ol
+  className="books-grid"
+>
+  <li>
+    <div
+      className="book"
+    >
+      <div
+        className="book-top"
+      >
+        <div
+          className="book-cover"
+          style={
+            Object {
+              "backgroundImage": "url(\\"algo\\")",
+              "height": 193,
+              "width": 128,
+            }
+          }
+        />
+        <If
+          test={true}
+        >
+          <div
+            onClick={[Function]}
+          >
+            <a
+              className="book-shelf-read"
+            />
+          </div>
+        </If>
+        <div
+          className="book-shelf-changer"
+        >
+          <ShelfOptions
+            book={
+              Object {
+                "authors": "Eu",
+                "id": 10,
+                "imageLinks": Object {
+                  "thumbnail": "algo",
+                },
+                "shelf": "read",
+                "title": "Livro",
+              }
+            }
+            setUpdate={[Function]}
+          />
+        </div>
+      </div>
+      <div
+        className="book-title"
+      >
+        Livro
+      </div>
+      <div
+        className="book-authors"
+      >
+        Eu
+      </div>
+      <div
+        className="book-authors"
+      >
+        read
+      </div>
+      <If
+        test={true}
+      >
+        <div
+          className="overlay"
+          id="popup1"
+        >
+          <div
+            className="popup"
+          >
+            <a
+              className="close"
+              onClick={[Function]}
+            >
+              ×
+            </a>
+            <RelatedBooks
+              bookId={10}
+              bookIdUpdate=""
+              relatedBooks={Array []}
+              setUpdate={[Function]}
+            />
+          </div>
+        </div>
+      </If>
+    </div>
+  </li>
+</ol>
+`;

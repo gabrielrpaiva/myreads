@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<select
+  onChange={[Function]}
+  value="read"
+>
+  <option
+    disabled={true}
+    value="moveto"
+  >
+    Move to..
+  </option>
+  <option
+    value="currentlyReading"
+  >
+    Currently Reading
+  </option>
+  <option
+    value="wantToRead"
+  >
+    Want To Read
+  </option>
+  <option
+    value="read"
+  >
+    Read
+  </option>
+  <option
+    value="none"
+  >
+    None
+  </option>
+   /&gt;
+</select>
+`;

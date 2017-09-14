@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders with conditional 1`] = `
+<span>
+  Test
+</span>
+`;
+
+exports[`renders without conditional 1`] = `null`;
