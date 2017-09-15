@@ -12,7 +12,7 @@ class ListBooks extends Component {
         const { books, shelf, setUpdate, allShelfs, bookIdUpdate,
             filterRelatedBooks, classPopUp, relatedBooks, closePopUp, relatedBookId } = this.props
 
-        let showingBooks = {}
+        let showingBooks
 
         window.localStorage.setItem('ctrlDidMount', shelf)
 
@@ -28,71 +28,71 @@ class ListBooks extends Component {
                 else { showingBooks = books.filter((book) => book.shelf === shelf) }
 
             }
-            else{
-                showingBooks = books
-            }
+            else { showingBooks = books }
 
         }
 
-        let shelfBooks
+        if (typeof (showingBooks) === "undefined") {
 
-        if (typeof (showingBooks) !== "undefined" && showingBooks.length > 0) {
+            showingBooks = []
 
-            shelfBooks = showingBooks.map(function (book) {
-
-                let classToLoad = "book-shelf-changer"
-
-                let classToLoadRelatedBook = "book-shelf-read"
-
-                if (bookIdUpdate === book.id) { classToLoad = "book-shelf-on-changer" }
-
-                if (relatedBookId === book.id) { classToLoadRelatedBook = "book-shelf-read-loader" }
-
-                if (typeof (book.shelf) === "undefined") { book.shelf = "none" }
-
-
-                return <li key={book.id}>
-                    <div className="book">
-                        <div className="book-top">
-                            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${book.imageLinks.thumbnail}")` }}></div>
-                            <If test={book.shelf === 'read'}>
-                                <div onClick={(event) => filterRelatedBooks(book)}>
-                                    <a className={classToLoadRelatedBook}></a>
-                                </div>
-                            </If>
-
-                            <div className={classToLoad}>
-                                <ShelfOptions allShelfs={allShelfs} setUpdate={setUpdate} book={book} />
-                            </div>
-                        </div>
-                        <div className="book-title">{book.title}</div>
-                        <div className="book-authors">{book.authors}</div>
-                        <div className="book-authors">{book.shelf}</div>
-                        <If test={book.shelf === 'read'}>
-                            <div id="popup1" className={`overlay${classPopUp}`}>
-                                <div className="popup">
-                                    <a className="close" onClick={(event) => closePopUp()}>&times;</a>
-                                    <RelatedBooks bookId={book.id} relatedBooks={relatedBooks}
-                                        setUpdate={setUpdate}
-                                        objShelfs={allShelfs}
-                                        bookIdUpdate={bookIdUpdate} />
-                                </div>
-                            </div>
-                        </If>
-                    </div>
-                </li>
-
-            });
         }
+
+        let newShowingBooks = showingBooks.map(obj => {
+
+            const newObj = Object.assign({}, obj);
+
+            if (bookIdUpdate === obj.id) { newObj.classToLoad = "book-shelf-on-changer"; }
+            else { newObj.classToLoad = "book-shelf-changer"; }
+
+            if (relatedBookId === obj.id) { newObj.relatedBookId = "book-shelf-read-loader"; }
+            else { newObj.relatedBookId = "book-shelf-read"; }
+
+            if (typeof (obj.shelf) === "undefined") { newObj.shelf = "none" }
+
+            return newObj;
+
+        });
 
         return (
             <ol className="books-grid">
-                {shelfBooks}
+                {newShowingBooks.map(book => (
+
+                    <li key={book.id}>
+                        <div className="book">
+                            <div className="book-top">
+                                <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${book.imageLinks.thumbnail}")` }}></div>
+                                <If test={book.shelf === 'read'}>
+                                    <div onClick={(event) => filterRelatedBooks(book)}>
+                                        <a className={book.relatedBookId}></a>
+                                    </div>
+                                </If>
+
+                                <div className={book.classToLoad}>
+                                    <ShelfOptions allShelfs={allShelfs} setUpdate={setUpdate} book={book} />
+                                </div>
+                            </div>
+                            <div className="book-title">{book.title}</div>
+                            <div className="book-authors">{book.authors}</div>
+                            <div className="book-authors">{book.shelf}</div>
+                            <If test={book.shelf === 'read'}>
+                                <div id="popup1" className={`overlay${classPopUp}`}>
+                                    <div className="popup">
+                                        <a className="close" onClick={(event) => closePopUp()}>&times;</a>
+                                        <RelatedBooks bookId={book.id} relatedBooks={relatedBooks}
+                                            setUpdate={setUpdate}
+                                            objShelfs={allShelfs}
+                                            bookIdUpdate={bookIdUpdate} />
+                                    </div>
+                                </div>
+                            </If>
+                        </div>
+                    </li>
+
+                ))}
             </ol>
         )
     }
-
-
 }
 
 export default ListBooks

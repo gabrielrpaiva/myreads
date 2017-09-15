@@ -39,10 +39,12 @@ exports[`renders without crashing 1`] = `
             book={
               Object {
                 "authors": "Eu",
+                "classToLoad": "book-shelf-changer",
                 "id": 10,
                 "imageLinks": Object {
                   "thumbnail": "algo",
                 },
+                "relatedBookId": "book-shelf-read",
                 "shelf": "read",
                 "title": "Livro",
               }
@@ -128,10 +130,12 @@ exports[`renders without crashing 1`] = `
             book={
               Object {
                 "authors": "Outro",
+                "classToLoad": "book-shelf-changer",
                 "id": 263,
                 "imageLinks": Object {
                   "thumbnail": "algo dois",
                 },
+                "relatedBookId": "book-shelf-read",
                 "shelf": "read",
                 "title": "Livro Dois",
               }
@@ -236,10 +240,12 @@ exports[`renders without crashing two 1`] = `
             book={
               Object {
                 "authors": "Eu",
+                "classToLoad": "book-shelf-changer",
                 "id": 10,
                 "imageLinks": Object {
                   "thumbnail": "algo",
                 },
+                "relatedBookId": "book-shelf-read",
                 "shelf": "read",
                 "title": "Livro",
               }
@@ -325,10 +331,12 @@ exports[`renders without crashing two 1`] = `
             book={
               Object {
                 "authors": "Outro",
+                "classToLoad": "book-shelf-changer",
                 "id": 263,
                 "imageLinks": Object {
                   "thumbnail": "algo dois",
                 },
+                "relatedBookId": "book-shelf-read",
                 "shelf": "read",
                 "title": "Livro Dois",
               }

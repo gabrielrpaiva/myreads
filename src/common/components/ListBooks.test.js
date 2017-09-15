@@ -4,8 +4,9 @@ import ListBooks from './ListBooks';
 
 /* it("renders without crashing", () => {
     expect(shallow(<ListBooks />)).toMatchSnapshot();
-});
- */
+}); */
+
+
 
 let books = [
     { id: 10, title: "Livro", authors: "Eu", shelf: "read", imageLinks: { thumbnail: "algo" } },
@@ -42,6 +43,7 @@ it("renders without crashing", () => {
         closePopUp={closePopUp}
         relatedBookId={relatedBookId} />)).toMatchSnapshot();
 });
+
 
 it("renders without crashing two", () => {
 
@@ -94,33 +96,5 @@ it("renders without crashing four", () => {
 });
 
 
-it("renders without crashing five", () => {
-     
-         shelf = "read" 
-      
-    /*      const test = mount(
-            <ListBooks books={books}
-            shelf={shelf}
-            setUpdate={setUpdate}
-            bookIdUpdate={bookIdUpdate}
-            filterRelatedBooks={filterRelatedBooks}
-            classPopUp={classPopUp}
-            relatedBooks={relatedBooks}
-            closePopUp={closePopUp}
-            relatedBookId={relatedBookId} />
-        ); */
 
-        console.log(mount(<ListBooks books={books}
-            shelf={shelf}
-            setUpdate={setUpdate}
-            bookIdUpdate={bookIdUpdate}
-            filterRelatedBooks={filterRelatedBooks}
-            classPopUp={classPopUp}
-            relatedBooks={relatedBooks}
-            closePopUp={closePopUp}
-            relatedBookId={relatedBookId} />).debug());
-       
-       // expect(test.find(".books-grid").length).toBe(1);     
-       
-    });
-
+ 

@@ -42,7 +42,9 @@ class SearchBooks extends React.Component {
 
         const { setUpdate, objShelfs, bookIdUpdate, filterRelatedBooks,
             classPopUp, relatedBooks, closePopUp, relatedBookId } = this.props
+
         let shelfBooks
+        
         if (typeof (books) !== "undefined" && books.length > 0) {
 
             window.localStorage.setItem('searchedBooks', JSON.stringify(books));
