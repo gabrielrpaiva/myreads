@@ -7,28 +7,30 @@ import ListBooks from './ListBooks';
 });
  */
 
+let books = [
+    { id: 10, title: "Livro", authors: "Eu", shelf: "read", imageLinks: { thumbnail: "algo" } },
+    { id: 263, title: "Livro Dois", authors: "Outro", shelf: "read", imageLinks: { thumbnail: "algo dois" } }
+]
+
+let shelf = "allShelfs"
+
+const setUpdate = jest.fn()
+
+const bookIdUpdate = ""
+
+const filterRelatedBooks = jest.fn()
+
+const classPopUp = ""
+
+const relatedBooks = []
+
+const closePopUp = jest.fn()
+
+const relatedBookId = ""
+
 it("renders without crashing", () => {
 
-    const books = [
-        { id: 10, title: "Livro", authors: "Eu", shelf: "read", imageLinks: { thumbnail: "algo" } },
-        { id: 263, title: "Livro Dois", authors: "Outro", shelf: "currentlyReading", imageLinks: { thumbnail: "algo dois" } }
-    ]
 
-    const shelf = "allShelfs"
-
-    const setUpdate = jest.fn()
-
-    const bookIdUpdate = ""
-
-    const filterRelatedBooks = jest.fn()
-
-    const classPopUp = ""
-
-    const relatedBooks = []
-
-    const closePopUp = jest.fn()
-
-    const relatedBookId = ""
 
     expect(shallow(<ListBooks books={books}
         shelf={shelf}
@@ -43,26 +45,7 @@ it("renders without crashing", () => {
 
 it("renders without crashing two", () => {
 
-    const books = [
-        { id: 10, title: "Livro", authors: "Eu", shelf: "read", imageLinks: { thumbnail: "algo" } },
-        { id: 263, title: "Livro Dois", authors: "Outro", shelf: "currentlyReading", imageLinks: { thumbnail: "algo dois" } }
-    ]
-
-    const shelf = "read"
-
-    const setUpdate = jest.fn()
-
-    const bookIdUpdate = ""
-
-    const filterRelatedBooks = jest.fn()
-
-    const classPopUp = ""
-
-    const relatedBooks = []
-
-    const closePopUp = jest.fn()
-
-    const relatedBookId = ""
+    shelf = "read" 
 
     expect(shallow(<ListBooks books={books}
         shelf={shelf}
@@ -78,26 +61,7 @@ it("renders without crashing two", () => {
 
 it("renders without crashing three", () => {
 
-    const books = [
-        { id: 10, title: "Livro", authors: "Eu", shelf: "read", imageLinks: { thumbnail: "algo" } },
-        { id: 263, title: "Livro Dois", authors: "Outro", shelf: "currentlyReading", imageLinks: { thumbnail: "algo dois" } }
-    ]
-
-    const shelf = "none"
-
-    const setUpdate = jest.fn()
-
-    const bookIdUpdate = ""
-
-    const filterRelatedBooks = jest.fn()
-
-    const classPopUp = ""
-
-    const relatedBooks = []
-
-    const closePopUp = jest.fn()
-
-    const relatedBookId = ""
+    shelf = "none" 
 
     expect(shallow(<ListBooks books={books}
         shelf={shelf}
@@ -114,23 +78,9 @@ it("renders without crashing three", () => {
 
 it("renders without crashing four", () => {
 
-    const books = undefined
+     books = undefined
 
-    const shelf = "none"
-
-    const setUpdate = jest.fn()
-
-    const bookIdUpdate = ""
-
-    const filterRelatedBooks = jest.fn()
-
-    const classPopUp = ""
-
-    const relatedBooks = []
-
-    const closePopUp = jest.fn()
-
-    const relatedBookId = ""
+     shelf = "none" 
 
     expect(shallow(<ListBooks books={books}
         shelf={shelf}
@@ -145,36 +95,32 @@ it("renders without crashing four", () => {
 
 
 it("renders without crashing five", () => {
+     
+         shelf = "read" 
+      
+    /*      const test = mount(
+            <ListBooks books={books}
+            shelf={shelf}
+            setUpdate={setUpdate}
+            bookIdUpdate={bookIdUpdate}
+            filterRelatedBooks={filterRelatedBooks}
+            classPopUp={classPopUp}
+            relatedBooks={relatedBooks}
+            closePopUp={closePopUp}
+            relatedBookId={relatedBookId} />
+        ); */
 
-    const books = { id: "10", title: "Livro", authors: "Eu", shelf: "read", imageLinks: { thumbnail: "algo" } }
-
-
-    const shelf = undefined
-
-    const setUpdate = jest.fn()
-
-    const bookIdUpdate = "10"
-
-    const filterRelatedBooks = jest.fn()
-
-    const classPopUp = ""
-
-    const relatedBooks = []
-
-    const closePopUp = jest.fn()
-
-    const relatedBookId = "10"
-
-    expect(shallow(<ListBooks books={books}
-        shelf={shelf}
-        setUpdate={setUpdate}
-        bookIdUpdate={bookIdUpdate}
-        filterRelatedBooks={filterRelatedBooks}
-        classPopUp={classPopUp}
-        relatedBooks={relatedBooks}
-        closePopUp={closePopUp}
-        relatedBookId={relatedBookId} />)).toMatchSnapshot();
-
-        
-});
+        console.log(mount(<ListBooks books={books}
+            shelf={shelf}
+            setUpdate={setUpdate}
+            bookIdUpdate={bookIdUpdate}
+            filterRelatedBooks={filterRelatedBooks}
+            classPopUp={classPopUp}
+            relatedBooks={relatedBooks}
+            closePopUp={closePopUp}
+            relatedBookId={relatedBookId} />).debug());
+       
+       // expect(test.find(".books-grid").length).toBe(1);     
+       
+    });
 

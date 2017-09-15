@@ -111,7 +111,7 @@ exports[`renders without crashing 1`] = `
           }
         />
         <If
-          test={false}
+          test={true}
         >
           <div
             onClick={[Function]}
@@ -132,7 +132,7 @@ exports[`renders without crashing 1`] = `
                 "imageLinks": Object {
                   "thumbnail": "algo dois",
                 },
-                "shelf": "currentlyReading",
+                "shelf": "read",
                 "title": "Livro Dois",
               }
             }
@@ -153,10 +153,10 @@ exports[`renders without crashing 1`] = `
       <div
         className="book-authors"
       >
-        currentlyReading
+        read
       </div>
       <If
-        test={false}
+        test={true}
       >
         <div
           className="overlay"
@@ -183,12 +183,6 @@ exports[`renders without crashing 1`] = `
     </div>
   </li>
 </ol>
-`;
-
-exports[`renders without crashing five 1`] = `
-<ol
-  className="books-grid"
-/>
 `;
 
 exports[`renders without crashing four 1`] = `
@@ -287,6 +281,95 @@ exports[`renders without crashing two 1`] = `
             </a>
             <RelatedBooks
               bookId={10}
+              bookIdUpdate=""
+              relatedBooks={Array []}
+              setUpdate={[Function]}
+            />
+          </div>
+        </div>
+      </If>
+    </div>
+  </li>
+  <li>
+    <div
+      className="book"
+    >
+      <div
+        className="book-top"
+      >
+        <div
+          className="book-cover"
+          style={
+            Object {
+              "backgroundImage": "url(\\"algo dois\\")",
+              "height": 193,
+              "width": 128,
+            }
+          }
+        />
+        <If
+          test={true}
+        >
+          <div
+            onClick={[Function]}
+          >
+            <a
+              className="book-shelf-read"
+            />
+          </div>
+        </If>
+        <div
+          className="book-shelf-changer"
+        >
+          <ShelfOptions
+            book={
+              Object {
+                "authors": "Outro",
+                "id": 263,
+                "imageLinks": Object {
+                  "thumbnail": "algo dois",
+                },
+                "shelf": "read",
+                "title": "Livro Dois",
+              }
+            }
+            setUpdate={[Function]}
+          />
+        </div>
+      </div>
+      <div
+        className="book-title"
+      >
+        Livro Dois
+      </div>
+      <div
+        className="book-authors"
+      >
+        Outro
+      </div>
+      <div
+        className="book-authors"
+      >
+        read
+      </div>
+      <If
+        test={true}
+      >
+        <div
+          className="overlay"
+          id="popup1"
+        >
+          <div
+            className="popup"
+          >
+            <a
+              className="close"
+              onClick={[Function]}
+            >
+              ×
+            </a>
+            <RelatedBooks
+              bookId={263}
               bookIdUpdate=""
               relatedBooks={Array []}
               setUpdate={[Function]}
