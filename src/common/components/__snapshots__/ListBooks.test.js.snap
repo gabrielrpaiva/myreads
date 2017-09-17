@@ -36,6 +36,15 @@ exports[`renders without crashing 1`] = `
           className="book-shelf-changer"
         >
           <ShelfOptions
+            allShelfs={
+              Object {
+                "currentlyReading": "Currently Reading",
+                "moveto": "Move to..",
+                "none": "None",
+                "read": "Read",
+                "wantToRead": "Want To Read",
+              }
+            }
             book={
               Object {
                 "authors": "Eu",
@@ -87,6 +96,15 @@ exports[`renders without crashing 1`] = `
             <RelatedBooks
               bookId={10}
               bookIdUpdate=""
+              objShelfs={
+                Object {
+                  "currentlyReading": "Currently Reading",
+                  "moveto": "Move to..",
+                  "none": "None",
+                  "read": "Read",
+                  "wantToRead": "Want To Read",
+                }
+              }
               relatedBooks={Array []}
               setUpdate={[Function]}
             />
@@ -127,6 +145,15 @@ exports[`renders without crashing 1`] = `
           className="book-shelf-changer"
         >
           <ShelfOptions
+            allShelfs={
+              Object {
+                "currentlyReading": "Currently Reading",
+                "moveto": "Move to..",
+                "none": "None",
+                "read": "Read",
+                "wantToRead": "Want To Read",
+              }
+            }
             book={
               Object {
                 "authors": "Outro",
@@ -178,6 +205,15 @@ exports[`renders without crashing 1`] = `
             <RelatedBooks
               bookId={263}
               bookIdUpdate=""
+              objShelfs={
+                Object {
+                  "currentlyReading": "Currently Reading",
+                  "moveto": "Move to..",
+                  "none": "None",
+                  "read": "Read",
+                  "wantToRead": "Want To Read",
+                }
+              }
               relatedBooks={Array []}
               setUpdate={[Function]}
             />
@@ -237,6 +273,15 @@ exports[`renders without crashing two 1`] = `
           className="book-shelf-changer"
         >
           <ShelfOptions
+            allShelfs={
+              Object {
+                "currentlyReading": "Currently Reading",
+                "moveto": "Move to..",
+                "none": "None",
+                "read": "Read",
+                "wantToRead": "Want To Read",
+              }
+            }
             book={
               Object {
                 "authors": "Eu",
@@ -288,6 +333,15 @@ exports[`renders without crashing two 1`] = `
             <RelatedBooks
               bookId={10}
               bookIdUpdate=""
+              objShelfs={
+                Object {
+                  "currentlyReading": "Currently Reading",
+                  "moveto": "Move to..",
+                  "none": "None",
+                  "read": "Read",
+                  "wantToRead": "Want To Read",
+                }
+              }
               relatedBooks={Array []}
               setUpdate={[Function]}
             />
@@ -328,6 +382,15 @@ exports[`renders without crashing two 1`] = `
           className="book-shelf-changer"
         >
           <ShelfOptions
+            allShelfs={
+              Object {
+                "currentlyReading": "Currently Reading",
+                "moveto": "Move to..",
+                "none": "None",
+                "read": "Read",
+                "wantToRead": "Want To Read",
+              }
+            }
             book={
               Object {
                 "authors": "Outro",
@@ -379,6 +442,15 @@ exports[`renders without crashing two 1`] = `
             <RelatedBooks
               bookId={263}
               bookIdUpdate=""
+              objShelfs={
+                Object {
+                  "currentlyReading": "Currently Reading",
+                  "moveto": "Move to..",
+                  "none": "None",
+                  "read": "Read",
+                  "wantToRead": "Want To Read",
+                }
+              }
               relatedBooks={Array []}
               setUpdate={[Function]}
             />

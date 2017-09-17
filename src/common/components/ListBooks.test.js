@@ -8,12 +8,14 @@ import ListBooks from './ListBooks';
 
 
 
-let books = [
-    { id: 10, title: "Livro", authors: "Eu", shelf: "read", imageLinks: { thumbnail: "algo" } },
-    { id: 263, title: "Livro Dois", authors: "Outro", shelf: "read", imageLinks: { thumbnail: "algo dois" } }
-]
+const allShelfs = {
+    moveto: "Move to..",
+    currentlyReading: "Currently Reading",
+    wantToRead: "Want To Read",
+    read: "Read",
+    none: "None"
+}
 
-let shelf = "allShelfs"
 
 const setUpdate = jest.fn()
 
@@ -31,11 +33,16 @@ const relatedBookId = ""
 
 it("renders without crashing", () => {
 
+    let books = [
+        { id: 10, title: "Livro", authors: "Eu", shelf: "read", imageLinks: { thumbnail: "algo" } },
+        { id: 263, title: "Livro Dois", authors: "Outro", shelf: "read", imageLinks: { thumbnail: "algo dois" } }
+    ]
 
-
+    let shelf = "allShelfs"
     expect(shallow(<ListBooks books={books}
         shelf={shelf}
         setUpdate={setUpdate}
+        allShelfs={allShelfs}
         bookIdUpdate={bookIdUpdate}
         filterRelatedBooks={filterRelatedBooks}
         classPopUp={classPopUp}
@@ -47,11 +54,18 @@ it("renders without crashing", () => {
 
 it("renders without crashing two", () => {
 
-    shelf = "read" 
+
+    let books = [
+        { id: 10, title: "Livro", authors: "Eu", shelf: "read", imageLinks: { thumbnail: "algo" } },
+        { id: 263, title: "Livro Dois", authors: "Outro", shelf: "read", imageLinks: { thumbnail: "algo dois" } }
+    ]
+
+    let shelf = "read"
 
     expect(shallow(<ListBooks books={books}
         shelf={shelf}
         setUpdate={setUpdate}
+        allShelfs={allShelfs}
         bookIdUpdate={bookIdUpdate}
         filterRelatedBooks={filterRelatedBooks}
         classPopUp={classPopUp}
@@ -63,11 +77,18 @@ it("renders without crashing two", () => {
 
 it("renders without crashing three", () => {
 
-    shelf = "none" 
+
+    let books = [
+        { id: 10, title: "Livro", authors: "Eu", shelf: "currentlyReading", imageLinks: { thumbnail: "algo" } },
+        { id: 263, title: "Livro Dois", authors: "Outro", shelf: "currentlyReading", imageLinks: { thumbnail: "algo dois" } }
+    ]
+
+    let shelf = "none"
 
     expect(shallow(<ListBooks books={books}
         shelf={shelf}
         setUpdate={setUpdate}
+        allShelfs={allShelfs}
         bookIdUpdate={bookIdUpdate}
         filterRelatedBooks={filterRelatedBooks}
         classPopUp={classPopUp}
@@ -80,13 +101,14 @@ it("renders without crashing three", () => {
 
 it("renders without crashing four", () => {
 
-     books = undefined
+    let books = undefined
 
-     shelf = "none" 
+    let shelf = "none"
 
     expect(shallow(<ListBooks books={books}
         shelf={shelf}
         setUpdate={setUpdate}
+        allShelfs={allShelfs}
         bookIdUpdate={bookIdUpdate}
         filterRelatedBooks={filterRelatedBooks}
         classPopUp={classPopUp}
@@ -95,6 +117,31 @@ it("renders without crashing four", () => {
         relatedBookId={relatedBookId} />)).toMatchSnapshot();
 });
 
+it("renders without crashing five", () => {
 
 
- 
+    let books = [
+        { id: 10, title: "Livro", authors: "Eu", shelf: "read", imageLinks: { thumbnail: "algo" } },
+        { id: 263, title: "Livro Dois", authors: "Outro", shelf: "read", imageLinks: { thumbnail: "algo dois" } }
+    ]
+
+    let shelf = "read"
+
+    const test = mount(
+        <ListBooks books={books}
+            shelf={shelf}
+            setUpdate={setUpdate}
+            allShelfs={allShelfs}
+            bookIdUpdate={bookIdUpdate}
+            filterRelatedBooks={filterRelatedBooks}
+            classPopUp={classPopUp}
+            relatedBooks={relatedBooks}
+            closePopUp={closePopUp}
+            relatedBookId={relatedBookId} />
+    );
+
+     
+    expect(test.find("a").length).toBe(4); 
+});
+
+
