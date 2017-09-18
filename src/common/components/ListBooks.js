@@ -14,6 +14,7 @@ class ListBooks extends Component {
 
         let showingBooks
 
+
         window.localStorage.setItem('ctrlDidMount', shelf)
 
         if (shelf === "allShelfs") {
@@ -38,25 +39,13 @@ class ListBooks extends Component {
 
         }
 
-        let newShowingBooks = showingBooks.map(obj => {
-
-            const newObj = Object.assign({}, obj);
-
-            if (bookIdUpdate === obj.id) { newObj.classToLoad = "book-shelf-on-changer"; }
-            else { newObj.classToLoad = "book-shelf-changer"; }
-
-            if (relatedBookId === obj.id) { newObj.relatedBookId = "book-shelf-read-loader"; }
-            else { newObj.relatedBookId = "book-shelf-read"; }
-
-            if (typeof (obj.shelf) === "undefined") { newObj.shelf = "none" }
-
-            return newObj;
-
-        });
+        showingBooks.map(book =>
+            typeof (book.shelf) === "undefined" ? book.shelf ="none" : book.shelf 
+        ) 
 
         return (
             <ol className="books-grid">
-                {newShowingBooks.map(book => (
+                {showingBooks.map(book => (
 
                     <li key={book.id}>
                         <div className="book">
@@ -64,11 +53,11 @@ class ListBooks extends Component {
                                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${book.imageLinks.thumbnail}")` }}></div>
                                 <If test={book.shelf === 'read'}>
                                     <div onClick={(event) => filterRelatedBooks(book)}>
-                                        <a className={book.relatedBookId}></a>
+                                        <a className={relatedBookId === book.id  ? "book-shelf-read-loader" : "book-shelf-read"}></a>
                                     </div>
                                 </If>
 
-                                <div className={book.classToLoad}>
+                                <div className={bookIdUpdate === book.id  ? "book-shelf-on-changer" : "book-shelf-changer"}>
                                     <ShelfOptions allShelfs={allShelfs} setUpdate={setUpdate} book={book} />
                                 </div>
                             </div>
