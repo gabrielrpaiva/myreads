@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from "enzyme";
-import ShelfOptions from './ShelfOptions';
+import ShelfOptions from '../../src/common/components/ShelfOptions';
 
 it("renders without crashing", () => {
 

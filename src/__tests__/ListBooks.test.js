@@ -1,11 +1,6 @@
 import React from 'react';
 import { shallow, mount } from "enzyme";
-import ListBooks from './ListBooks';
-
-/* it("renders without crashing", () => {
-    expect(shallow(<ListBooks />)).toMatchSnapshot();
-}); */
-
+import ListBooks from '../../src/common/components/ListBooks';
 
 
 const allShelfs = {
@@ -31,7 +26,7 @@ const closePopUp = jest.fn()
 
 const relatedBookId = ""
 
-it("renders without crashing", () => {
+it("renders for allShelfs", () => {
 
     let books = [
         { id: 10, title: "Livro", authors: "Eu", shelf: "read", imageLinks: { thumbnail: "algo" } },
@@ -52,30 +47,7 @@ it("renders without crashing", () => {
 });
 
 
-it("renders without crashing two", () => {
-
-
-    let books = [
-        { id: 10, title: "Livro", authors: "Eu", shelf: "read", imageLinks: { thumbnail: "algo" } },
-        { id: 263, title: "Livro Dois", authors: "Outro", shelf: "read", imageLinks: { thumbnail: "algo dois" } }
-    ]
-
-    let shelf = "read"
-
-    expect(shallow(<ListBooks books={books}
-        shelf={shelf}
-        setUpdate={setUpdate}
-        allShelfs={allShelfs}
-        bookIdUpdate={bookIdUpdate}
-        filterRelatedBooks={filterRelatedBooks}
-        classPopUp={classPopUp}
-        relatedBooks={relatedBooks}
-        closePopUp={closePopUp}
-        relatedBookId={relatedBookId} />)).toMatchSnapshot();
-});
-
-
-it("renders without crashing three", () => {
+it("renders with shelf none", () => {
 
 
     let books = [
@@ -99,7 +71,7 @@ it("renders without crashing three", () => {
 
 
 
-it("renders without crashing four", () => {
+it("renders with empty books", () => {
 
     let books = undefined
 
@@ -117,12 +89,13 @@ it("renders without crashing four", () => {
         relatedBookId={relatedBookId} />)).toMatchSnapshot();
 });
 
-it("renders without crashing five", () => {
+
+
+it("execute line 52", () => {
 
 
     let books = [
-        { id: 10, title: "Livro", authors: "Eu", shelf: "read", imageLinks: { thumbnail: "algo" } },
-        { id: 263, title: "Livro Dois", authors: "Outro", shelf: "read", imageLinks: { thumbnail: "algo dois" } }
+        { id: 10, title: "Livro", authors: "Eu", shelf: "read", imageLinks: { thumbnail: "algo" } }
     ]
 
     let shelf = "read"
@@ -140,8 +113,35 @@ it("renders without crashing five", () => {
             relatedBookId={relatedBookId} />
     );
 
-     
-    expect(test.find("a").length).toBe(4); 
+
+    test.find(".book-top div a").simulate("click");
+    expect(filterRelatedBooks).toHaveBeenCalledTimes(1);
 });
 
 
+it("execute line 67", () => {
+
+
+    let books = [
+        { id: 10, title: "Livro", authors: "Eu", shelf: "read", imageLinks: { thumbnail: "algo" } }
+    ]
+
+    let shelf = "read"
+
+    const test = mount(
+        <ListBooks books={books}
+            shelf={shelf}
+            setUpdate={setUpdate}
+            allShelfs={allShelfs}
+            bookIdUpdate={bookIdUpdate}
+            filterRelatedBooks={filterRelatedBooks}
+            classPopUp={classPopUp}
+            relatedBooks={relatedBooks}
+            closePopUp={closePopUp}
+            relatedBookId={relatedBookId} />
+    );
+
+
+    test.find(".close").simulate("click");
+    expect(closePopUp).toHaveBeenCalledTimes(1);
+});

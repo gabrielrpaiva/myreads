@@ -19,15 +19,18 @@ class SearchBooks extends React.Component {
 
     searckBook = (query) => {
         this.setState({ query })
+        console.log("query:" + query)
 
 
-        BooksAPI.search(query, 20).then(books => {
+      /*   BooksAPI.search(query, 20).then(books => {
             this.setState(state => ({
                 books
             }))
-        })
+        }) */
 
     }
+
+  
 
     filterList = (shelfFilter) => {
 
@@ -75,9 +78,7 @@ class SearchBooks extends React.Component {
         return (
 
             <div className="app">
-                <div>
-
-                </div>
+                
                 <div className="search-books">
                     <div className="search-books-bar">
                         <Link

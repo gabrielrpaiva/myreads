@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from "enzyme";
-import If from './If';
+import If from '../If';
 
 it("renders with conditional", () => {
 

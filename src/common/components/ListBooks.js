@@ -13,10 +13,7 @@ class ListBooks extends Component {
             filterRelatedBooks, classPopUp, relatedBooks, closePopUp, relatedBookId } = this.props
 
         let showingBooks
-
-
-        window.localStorage.setItem('ctrlDidMount', shelf)
-
+ 
         if (shelf === "allShelfs") {
 
             showingBooks = books

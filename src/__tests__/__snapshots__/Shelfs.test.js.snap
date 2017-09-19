@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders for allShelfs 1`] = `
+<div
+  className="app"
+>
+  <div
+    className="list-books"
+  >
+    <div
+      className="list-books-title"
+    >
+      <h1>
+        MyReads
+      </h1>
+    </div>
+    <div
+      className="list-books-content"
+    >
+      <div>
+        <div
+          className="bookshelf"
+        >
+          <h2
+            className="bookshelf-title"
+          >
+            Currently Reading
+          </h2>
+          <div
+            className="bookshelf-books"
+          >
+            <ListBooks
+              allShelfs={
+                Object {
+                  "currentlyReading": "Currently Reading",
+                  "moveto": "Move to..",
+                  "none": "None",
+                  "read": "Read",
+                  "wantToRead": "Want To Read",
+                }
+              }
+              bookIdUpdate=""
+              books={
+                Array [
+                  Object {
+                    "authors": "Eu",
+                    "id": 10,
+                    "imageLinks": Object {
+                      "thumbnail": "algo",
+                    },
+                    "shelf": "read",
+                    "title": "Livro",
+                  },
+                ]
+              }
+              classPopUp=""
+              closePopUp={[Function]}
+              filterRelatedBooks={[Function]}
+              relatedBookId=""
+              relatedBooks={Array []}
+              setUpdate={[Function]}
+              shelf="currentlyReading"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="list-books-content"
+    >
+      <div>
+        <div
+          className="bookshelf"
+        >
+          <h2
+            className="bookshelf-title"
+          >
+            Want To Read
+          </h2>
+          <div
+            className="bookshelf-books"
+          >
+            <ListBooks
+              allShelfs={
+                Object {
+                  "currentlyReading": "Currently Reading",
+                  "moveto": "Move to..",
+                  "none": "None",
+                  "read": "Read",
+                  "wantToRead": "Want To Read",
+                }
+              }
+              bookIdUpdate=""
+              books={
+                Array [
+                  Object {
+                    "authors": "Eu",
+                    "id": 10,
+                    "imageLinks": Object {
+                      "thumbnail": "algo",
+                    },
+                    "shelf": "read",
+                    "title": "Livro",
+                  },
+                ]
+              }
+              classPopUp=""
+              closePopUp={[Function]}
+              filterRelatedBooks={[Function]}
+              relatedBookId=""
+              relatedBooks={Array []}
+              setUpdate={[Function]}
+              shelf="wantToRead"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="list-books-content"
+    >
+      <div>
+        <div
+          className="bookshelf"
+        >
+          <h2
+            className="bookshelf-title"
+          >
+            Read
+          </h2>
+          <div
+            className="bookshelf-books"
+          >
+            <ListBooks
+              allShelfs={
+                Object {
+                  "currentlyReading": "Currently Reading",
+                  "moveto": "Move to..",
+                  "none": "None",
+                  "read": "Read",
+                  "wantToRead": "Want To Read",
+                }
+              }
+              bookIdUpdate=""
+              books={
+                Array [
+                  Object {
+                    "authors": "Eu",
+                    "id": 10,
+                    "imageLinks": Object {
+                      "thumbnail": "algo",
+                    },
+                    "shelf": "read",
+                    "title": "Livro",
+                  },
+                ]
+              }
+              classPopUp=""
+              closePopUp={[Function]}
+              filterRelatedBooks={[Function]}
+              relatedBookId=""
+              relatedBooks={Array []}
+              setUpdate={[Function]}
+              shelf="read"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <Link
+      className="open-search"
+      replace={false}
+      to="/search"
+    />
+  </div>
+</div>
+`;

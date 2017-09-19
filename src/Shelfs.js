@@ -6,11 +6,6 @@ import ListBooks from './common/components/ListBooks'
 
 class Shelfs extends React.Component {
 
-
-
-
-
-
     render() {
         const { books, setUpdate, objShelfs, bookIdUpdate, filterRelatedBooks,
             classPopUp, relatedBooks, closePopUp, relatedBookId } = this.props
@@ -29,7 +24,6 @@ class Shelfs extends React.Component {
 
                         <div key={key} className="list-books-content">
                             <div>
-
                                 <div className="bookshelf">
                                     <h2 className="bookshelf-title">{objShelfs[key]}</h2>
                                     <div className="bookshelf-books">
