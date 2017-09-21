@@ -29,11 +29,7 @@ class BooksApp extends React.Component {
     //State of the book id that are going to show the  relateded books
     relatedBookId: ''
   }
-
-  searckBookTest = () => {
-
-
-  }
+ 
 
   componentDidMount() {
 
@@ -169,9 +165,7 @@ class BooksApp extends React.Component {
       }
     })
 
-
-
-
+    /* Go through all promisses to mount the related books */
     Promise.all(allPromisses).then(booksReturn => {
 
       currentBook = []
@@ -211,8 +205,10 @@ class BooksApp extends React.Component {
   }
 
   render() {
+
+    /* Get the variables from the state */
     const { books, bookIdUpdate, allShelfs, classPopUp, relatedBooks, relatedBookId } = this.state
-    console.log(".length: " + books.length)
+ 
 
     return (
 
