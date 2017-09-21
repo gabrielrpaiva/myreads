@@ -1,18 +1,9 @@
 import React from 'react'
 import ListBooks from './common/components/ListBooks'
-
 import If from './If'
-
-
-
-
-
 class RelatedBooks extends React.Component {
 
-
-
     render() {
-
 
         const { bookId, relatedBooks, setUpdate, objShelfs, bookIdUpdate } = this.props
 
@@ -36,14 +27,9 @@ class RelatedBooks extends React.Component {
                     <h3 className="bookshelf-title">Unfortunately, we did not find suggestions for this book</h3>
 
                 </If>
-
-
             </div>
         )
-
     }
-
-
 }
 
 export default RelatedBooks

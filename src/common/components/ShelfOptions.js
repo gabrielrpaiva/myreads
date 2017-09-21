@@ -4,8 +4,10 @@ class ShelfOptions extends Component {
 
     render() {
 
+          /* Get the variables from the props */
         const { allShelfs, setUpdate, book } = this.props 
  
+         /* Go through allShelfs to mount the select option to the books  */
         let  shelfOptions = Object.keys(allShelfs).map(function (key) {
 
             if (key === "moveto") {

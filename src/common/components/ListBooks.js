@@ -9,36 +9,55 @@ class ListBooks extends Component {
 
     render() {
 
+        /* Get the variables from the props */
         const { books, shelf, setUpdate, allShelfs, bookIdUpdate,
             filterRelatedBooks, classPopUp, relatedBooks, closePopUp, relatedBookId } = this.props
 
-        let showingBooks
- 
+        let showingBooks =[]
+
+
         if (shelf === "allShelfs") {
 
+            /* Get all books  */
             showingBooks = books
 
         } else {
 
+            /* Verify if there is any books on the list  */
             if (typeof (books) !== "undefined" && books.length > 0) {
 
-                if (shelf === "none") { showingBooks = books.filter((book) => typeof (book.shelf) === "undefined") }
-                else { showingBooks = books.filter((book) => book.shelf === shelf) }
+
+                if (shelf === "none") {
+
+                    /* If the shef is none, get all books with undefined shelf */
+                    showingBooks = books.filter((book) => typeof (book.shelf) === "undefined")
+                }
+                else {
+
+                    /* Get the books according to the past shelf */
+                    showingBooks = books.filter((book) => book.shelf === shelf)
+
+                }
 
             }
-            else { showingBooks = books }
+            else {
+                /* Get the books according to the past shelf */
+                showingBooks = books
+            }
 
         }
 
+        /* Verify if showingBooks is not undefined */
         if (typeof (showingBooks) === "undefined") {
 
             showingBooks = []
 
         }
 
+        /* Set the shelf none, where the shelf is undefined */
         showingBooks.map(book =>
-            typeof (book.shelf) === "undefined" ? book.shelf ="none" : book.shelf 
-        ) 
+            typeof (book.shelf) === "undefined" ? book.shelf = "none" : book.shelf
+        )
 
         return (
             <ol className="books-grid">
@@ -50,11 +69,11 @@ class ListBooks extends Component {
                                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${book.imageLinks.thumbnail}")` }}></div>
                                 <If test={book.shelf === 'read'}>
                                     <div onClick={(event) => filterRelatedBooks(book)}>
-                                        <a className={relatedBookId === book.id  ? "book-shelf-read-loader" : "book-shelf-read"}></a>
+                                        <a className={relatedBookId === book.id ? "book-shelf-read-loader" : "book-shelf-read"}></a>
                                     </div>
                                 </If>
 
-                                <div className={bookIdUpdate === book.id  ? "book-shelf-on-changer" : "book-shelf-changer"}>
+                                <div className={bookIdUpdate === book.id ? "book-shelf-on-changer" : "book-shelf-changer"}>
                                     <ShelfOptions allShelfs={allShelfs} setUpdate={setUpdate} book={book} />
                                 </div>
                             </div>

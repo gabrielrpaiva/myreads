@@ -7,9 +7,12 @@ import ListBooks from './common/components/ListBooks'
 class Shelfs extends React.Component {
 
     render() {
+
+        /* Get the variables from the props */
         const { books, setUpdate, objShelfs, bookIdUpdate, filterRelatedBooks,
             classPopUp, relatedBooks, closePopUp, relatedBookId } = this.props
 
+        /* Get only the books there are in a shelf */    
         let showingShelfs = Object.keys(objShelfs)
             .filter(shelf => shelf !== "none" && shelf !== "moveto")
 
