@@ -68,18 +68,17 @@ class ListBooks extends Component {
                             <div className="book-top">
                                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${book.imageLinks.thumbnail}")` }}></div>
                                 <If test={book.shelf === 'read'}>
-                                    <div onClick={(event) => filterRelatedBooks(book)}>
+                                    <div onClick={(event) => filterRelatedBooks(book)} title="Related Books">
                                         <a className={relatedBookId === book.id ? "book-shelf-read-loader" : "book-shelf-read"}></a>
                                     </div>
                                 </If>
 
-                                <div className={bookIdUpdate === book.id ? "book-shelf-on-changer" : "book-shelf-changer"}>
+                                <div className={bookIdUpdate === book.id ? "book-shelf-on-changer" : "book-shelf-changer"}  title="Shelf Options">
                                     <ShelfOptions allShelfs={allShelfs} setUpdate={setUpdate} book={book} />
                                 </div>
                             </div>
                             <div className="book-title">{book.title}</div>
-                            <div className="book-authors">{book.authors}</div>
-                            <div className="book-authors">{book.shelf}</div>
+                            <div className="book-authors">{book.authors}</div> 
                             <If test={book.shelf === 'read'}>
                                 <div id="popup1" className={`overlay${classPopUp}`}>
                                     <div className="popup">
