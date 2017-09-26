@@ -6,6 +6,7 @@ import App from './App'
 import escapeRegExp from 'escape-string-regexp'
 import sortBy from 'sort-by'
 import { Link } from 'react-router-dom'
+import DebounceInput from 'react-debounce-input'
 
 
 
@@ -22,11 +23,15 @@ class SearchBooks extends React.Component {
     searckBook = (query) => {
         this.setState({ query })
 
-        BooksAPI.search(query, 20).then(books => {
-            this.setState(state => ({
-                books
-            }))
-        })
+        if (query !== "") {
+
+            BooksAPI.search(query, 20).then(books => {
+
+                this.setState({ books })
+
+            })
+
+        }
 
     }
 
@@ -62,12 +67,12 @@ class SearchBooks extends React.Component {
             /* Go through all the searched books and verify if the specific book is in the shelf, and the set the shelf  */
             shelfBooks = books.map(obj => {
 
-                const newObj = Object.assign({}, obj);
-                let bookShelf = booksInShelfs.filter(bs => bs.id === obj.id)
-
-                if (bookShelf.length > 0) {
-
-                    newObj.shelf = bookShelf[0].shelf
+                const newObj = { ...obj }
+                let bookShelf = booksInShelfs.find(bs => bs.id === obj.id)
+                
+                if (typeof (bookShelf) !== "undefined") {
+                    
+                    newObj.shelf = bookShelf.shelf
 
                 }
 
@@ -92,17 +97,23 @@ class SearchBooks extends React.Component {
                         </Link>
                         <div className="search-books-input-wrapper">
 
-                            <input type="text"
+                            {/*      <input type="text"
                                 placeholder="Search by title or author"
+                                value={query}
+                                onChange={(event) => this.searckBook(event.target.value)} /> */}
+
+                            <DebounceInput type="text"
+                                placeholder="Search by title or author"
+                                debounceTimeout={500}
                                 value={query}
                                 onChange={(event) => this.searckBook(event.target.value)} />
 
                         </div>
-                    
+
                     </div>
 
                     <div className="search-books-results">
-                    <div className="book-shelf-filter">
+                        <div className="book-shelf-filter">
                             <span onClick={(event) => this.filterList("read")}>Filter by:</span>
                             <select value={shelfFilter} onChange={(event) => this.filterList(event.target.value)} >
                                 <option value="allShelfs">All Shelfs</option>

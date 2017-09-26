@@ -13,8 +13,9 @@ class Shelfs extends React.Component {
             classPopUp, relatedBooks, closePopUp, relatedBookId } = this.props
 
         /* Get only the books there are in a shelf */    
-        let showingShelfs = Object.keys(objShelfs)
+        const showingShelfs = Object.keys(objShelfs)
             .filter(shelf => shelf !== "none" && shelf !== "moveto")
+            
 
 
         return (

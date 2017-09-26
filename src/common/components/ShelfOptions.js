@@ -4,20 +4,16 @@ class ShelfOptions extends Component {
 
     render() {
 
-          /* Get the variables from the props */
-        const { allShelfs, setUpdate, book } = this.props 
- 
-         /* Go through allShelfs to mount the select option to the books  */
-        let  shelfOptions = Object.keys(allShelfs).map(function (key) {
+        /* Get the variables from the props */
+        const { allShelfs, setUpdate, book } = this.props
 
-            if (key === "moveto") {
+        /* Go through allShelfs to mount the select option to the books  */
+        let shelfOptions = Object.keys(allShelfs).map(function (key) {
 
-                return <option key={key} value={key} disabled>{allShelfs[key]}</option>
-
-            } else {
-
-                return <option key={key} value={key}>{allShelfs[key]}</option>
-            }
+            return <option
+                key={key}
+                value={key}
+                disabled={key === 'moveto'}>{allShelfs[key]}</option>;
 
         });
 

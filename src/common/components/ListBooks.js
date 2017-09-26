@@ -13,39 +13,10 @@ class ListBooks extends Component {
         const { books, shelf, setUpdate, allShelfs, bookIdUpdate,
             filterRelatedBooks, classPopUp, relatedBooks, closePopUp, relatedBookId } = this.props
 
-        let showingBooks =[]
+        //let showingBooks =[]
 
-
-        if (shelf === "allShelfs") {
-
-            /* Get all books  */
-            showingBooks = books
-
-        } else {
-
-            /* Verify if there is any books on the list  */
-            if (typeof (books) !== "undefined" && books.length > 0) {
-
-
-                if (shelf === "none") {
-
-                    /* If the shef is none, get all books with undefined shelf */
-                    showingBooks = books.filter((book) => typeof (book.shelf) === "undefined")
-                }
-                else {
-
-                    /* Get the books according to the past shelf */
-                    showingBooks = books.filter((book) => book.shelf === shelf)
-
-                }
-
-            }
-            else {
-                /* Get the books according to the past shelf */
-                showingBooks = books
-            }
-
-        }
+        let showingBooks = shelf === 'allShelfs' ? books : books.filter(book => shelf === 'none' ? 
+        !book.shelf : book.shelf === shelf);
 
         /* Verify if showingBooks is not undefined */
         if (typeof (showingBooks) === "undefined") {
@@ -73,12 +44,12 @@ class ListBooks extends Component {
                                     </div>
                                 </If>
 
-                                <div className={bookIdUpdate === book.id ? "book-shelf-on-changer" : "book-shelf-changer"}  title="Shelf Options">
+                                <div className={bookIdUpdate === book.id ? "book-shelf-on-changer" : "book-shelf-changer"} title="Shelf Options">
                                     <ShelfOptions allShelfs={allShelfs} setUpdate={setUpdate} book={book} />
                                 </div>
                             </div>
                             <div className="book-title">{book.title}</div>
-                            <div className="book-authors">{book.authors}</div> 
+                            <div className="book-authors">{book.authors}</div>
                             <If test={book.shelf === 'read'}>
                                 <div id="popup1" className={`overlay${classPopUp}`}>
                                     <div className="popup">
