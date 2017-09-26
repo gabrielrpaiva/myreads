@@ -101,15 +101,12 @@ class SearchBooks extends React.Component {
                             className='close-search'>
                         </Link>
                         <div className="search-books-input-wrapper">
-
                             <DebounceInput type="text"
                                 placeholder="Search by title"
                                 debounceTimeout={400}
                                 value={query}
                                 onChange={(event) => this.searckBook(event.target.value)} />
-
                         </div>
-
                     </div>
 
                     <div className="search-books-results">
