@@ -21,6 +21,7 @@ class SearchBooks extends React.Component {
 
     /* Function  to search the book, accordding to the query */
     searckBook = (query) => {
+
         this.setState({ query })
 
         if (query !== "") {
@@ -30,6 +31,10 @@ class SearchBooks extends React.Component {
                 this.setState({ books })
 
             })
+
+        } else {
+
+            this.setState({ books: [] })
 
         }
 
@@ -69,9 +74,9 @@ class SearchBooks extends React.Component {
 
                 const newObj = { ...obj }
                 let bookShelf = booksInShelfs.find(bs => bs.id === obj.id)
-                
+
                 if (typeof (bookShelf) !== "undefined") {
-                    
+
                     newObj.shelf = bookShelf.shelf
 
                 }
@@ -97,14 +102,9 @@ class SearchBooks extends React.Component {
                         </Link>
                         <div className="search-books-input-wrapper">
 
-                            {/*      <input type="text"
-                                placeholder="Search by title or author"
-                                value={query}
-                                onChange={(event) => this.searckBook(event.target.value)} /> */}
-
                             <DebounceInput type="text"
-                                placeholder="Search by title or author"
-                                debounceTimeout={500}
+                                placeholder="Search by title"
+                                debounceTimeout={400}
                                 value={query}
                                 onChange={(event) => this.searckBook(event.target.value)} />
 

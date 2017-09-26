@@ -29,7 +29,7 @@ class BooksApp extends React.Component {
     //State of the book id that are going to show the  relateded books
     relatedBookId: ''
   }
- 
+
 
   componentDidMount() {
 
@@ -51,18 +51,16 @@ class BooksApp extends React.Component {
 
     // Set the bookId of the book in the state 
     // (for chnage the the class of the 'book-shelf-changer' to book-shelf-on-changer)
-
     this.setState({ bookIdUpdate: book.id })
 
     //Call the api to update the book
     BooksAPI.update(book, bookShelf).then(() => {
 
-      // Crate a an empity list
-      let newBookList = {}
-      let books = window.localStorage.getItem('booksInShelfs') || '{}';
-      books = JSON.parse(books)
+      let { books } = this.state;
 
-      // Verify if the updated book, is in the current list of books of the shelf
+      book.shelf = bookShelf
+
+      // Verify if the updated book is in the current list of books of the shelf
       if (books.filter(b => b.id === book.id).length === 0) {
 
         // Get all the books searcheds that was set in the localStorage
@@ -71,6 +69,7 @@ class BooksApp extends React.Component {
         // Make the parse json of the books searcheds
         searchedBooks = JSON.parse(searchedBooks)
 
+        //Verify to update the relatedBooks
         if (this.state.relatedBooks.length > 0) {
 
           let newRelatedBookList = this.state.relatedBooks.filter(rb => rb.id !== book.id)
@@ -91,32 +90,28 @@ class BooksApp extends React.Component {
 
       }
 
-      //Go through the list of books of the shelf, and update the updated book to the new shelf 
-      newBookList = books.map(obj => {
+      /* Set the new shelf to the book */
+      books.map(obj => {
 
-        const newObj = Object.assign({}, obj);
+        if (obj.id === book.id) {
 
-        if (newObj.id === book.id) {
-
-          newObj.shelf = bookShelf;
+          obj.shelf = bookShelf
 
         }
-
-        return newObj;
 
       });
 
 
       // Set the list of books of the shelf in the localStorage
       // (for control the current shelf on the search page)  
-      window.localStorage.setItem('booksInShelfs', JSON.stringify(newBookList));
+      window.localStorage.setItem('booksInShelfs', JSON.stringify(books));
 
       this.setState({
         // Clean the state of the id updated book 
         // (for chnage the the class of the 'book-shelf-on-changer' to book-shelf-changer)
         bookIdUpdate: "",
         // Set the new list of books of the shelf in the state 
-        books: newBookList
+        books
       })
     })
 
@@ -137,9 +132,6 @@ class BooksApp extends React.Component {
     /* Set the state of the id related book, so then teh class of button can change */
     this.setState({ relatedBookId: bookToRelated.id });
 
-    /* Clean the ctrlRelatedBooks local storage */
-    window.localStorage.setItem('ctrlRelatedBooks', [])
-
     /* Split every word of the book title  */
     let arrayTitle = bookToRelated.title.split(' ')
 
@@ -150,19 +142,14 @@ class BooksApp extends React.Component {
     let currentBook = []
 
     /* Get from local storege the current lis of books in the shelfs */
-    let booksInShelfs = window.localStorage.getItem('booksInShelfs') || '{}';
-    booksInShelfs = JSON.parse(booksInShelfs)
+    let { books } = this.state;
 
     /* Go through all the words of the book title */
-    arrayTitle.map((desc) => {
-
-      /* Verify if the word have at least 3 letters */
-      if (desc.length > 3) {
-
+    arrayTitle.filter(desc => desc.length > 3).map((desc) => {
+       
         /* Set the Promisse of search related book on the let  allPromisses*/
         allPromisses.push(BooksAPI.search(desc, 20));
-
-      }
+ 
     })
 
     /* Go through all promisses to mount the related books */
@@ -170,30 +157,17 @@ class BooksApp extends React.Component {
 
       currentBook = []
 
-      booksReturn.map((bk) => {
+      booksReturn.filter(bk => typeof (bk) !== "undefined" && bk.length > 0).map((bk) => { 
 
-        if (typeof (bk) !== "undefined" && bk.length > 0) {
+        bk.filter(objBookFilter => objBookFilter.id !== bookToRelated.id).map((b) => {
 
-          bk.map((b) => {
+          if (currentBook.length < 3) {
 
-            /* Verify if the currentBook has less then 3 books */
-            if (currentBook.length < 3) {
+            currentBook.push(b)
 
-              /* Verify if the searched book is alredy in a shelf */
-              let bookShelf = booksInShelfs.filter(bs => bs.id === b.id)
+          }
 
-              /* If is not in a shelf, set in the new list */
-              if (bookShelf.length === 0) {
-
-                /* Add on the current list book */
-                currentBook.push(b)
-
-              }
-
-            }
-
-          })
-        }
+        }) 
 
       })
 
@@ -208,7 +182,7 @@ class BooksApp extends React.Component {
 
     /* Get the variables from the state */
     const { books, bookIdUpdate, allShelfs, classPopUp, relatedBooks, relatedBookId } = this.state
- 
+
 
     return (
 
@@ -235,7 +209,7 @@ class BooksApp extends React.Component {
             classPopUp={classPopUp}
             relatedBooks={relatedBooks}
             closePopUp={this.closePopUp}
-            relatedBookId={relatedBookId}  />
+            relatedBookId={relatedBookId} />
         )} />
 
       </div>

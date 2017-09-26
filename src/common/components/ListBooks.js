@@ -11,10 +11,8 @@ class ListBooks extends Component {
 
         /* Get the variables from the props */
         const { books, shelf, setUpdate, allShelfs, bookIdUpdate,
-            filterRelatedBooks, classPopUp, relatedBooks, closePopUp, relatedBookId } = this.props
-
-        //let showingBooks =[]
-
+            filterRelatedBooks, classPopUp, relatedBooks, closePopUp, relatedBookId } = this.props 
+   
         let showingBooks = shelf === 'allShelfs' ? books : books.filter(book => shelf === 'none' ? 
         !book.shelf : book.shelf === shelf);
 
