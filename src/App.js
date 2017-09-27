@@ -8,20 +8,13 @@ import * as BooksAPI from './util/BooksAPI'
 
 class BooksApp extends React.Component {
 
+  
 
   //Create the states of the component
   state = {
     // State of the books in the shelfs
     books: [],
-    bookIdUpdate: '',
-    // State of all the allowed shelfs
-    allShelfs: {
-      moveto: "Move to..",
-      currentlyReading: "Currently Reading",
-      wantToRead: "Want To Read",
-      read: "Read",
-      none: "None"
-    },
+    bookIdUpdate: '',    
     // State for controling popup visibity
     classPopUp: "",
     // State of list of related books
@@ -161,7 +154,8 @@ class BooksApp extends React.Component {
 
         bk.filter(objBookFilter => objBookFilter.id !== bookToRelated.id).map((b) => {
 
-          if (currentBook.length < 3) {
+          if (currentBook.length < 3 
+            && books.filter(bookOnShelf => bookOnShelf.id === b.id).length === 0) {
 
             currentBook.push(b)
 
@@ -179,6 +173,15 @@ class BooksApp extends React.Component {
   }
 
   render() {
+
+  // All the allowed shelfs
+  const  allShelfs = {
+      moveto: "Move to..",
+      currentlyReading: "Currently Reading",
+      wantToRead: "Want To Read",
+      read: "Read",
+      none: "None"
+    }
 
     /* Get the variables from the state */
     const { books, bookIdUpdate, allShelfs, classPopUp, relatedBooks, relatedBookId } = this.state
