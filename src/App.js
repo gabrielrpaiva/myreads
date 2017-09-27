@@ -184,7 +184,7 @@ class BooksApp extends React.Component {
     }
 
     /* Get the variables from the state */
-    const { books, bookIdUpdate, allShelfs, classPopUp, relatedBooks, relatedBookId } = this.state
+    const { books, bookIdUpdate, classPopUp, relatedBooks, relatedBookId } = this.state
 
 
     return (
